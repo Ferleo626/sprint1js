@@ -8,12 +8,28 @@
     <link rel="icon" href="./assest/Moviestack_favicon.png" type="image/x-icon">
 </head>
 <body class="bg-black text-white">
-    <header id="header"></header>
+    <header id="header" class="bg-gray-800 p-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <img src="./assest/Moviestack_isotipo.png" alt="MOVIESTACK Logo" class="w-16 h-16 rounded-full">
+            <img src="./assest/Moviestack_logotipo2.png" alt="MOVIESTACK Text Logo" class="w-32 h-16">
+        </div>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="text-white p-2 rounded">HOME</a></li>
+                <li><a href="#" class="text-black bg-white p-2 rounded">MOVIES</a></li>
+                <li><a href="#" class="text-white p-2 rounded">FAVS</a></li>
+            </ul>
+        </nav>
+    </header>
     <main class="text-center mt-10">
-        <h1 class="text-4xl font-bold mb-8">MOVIES</h1>
-        <div id="movieContainer" class="container mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        <div class="bg-gray-800 mx-auto max-w-7xl p-6">
+            <div class="bg-gray-600 h-48 flex items-center justify-center text-2xl mb-8">
+                <img src="./assest/banner2.png" alt="Banner Image" class="h-full w-full object-cover">
+            </div>
+            <div id="movieContainer" class="container mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        </div>
     </main>
-    <footer id="footer" class="mt-10"></footer>
+    <footer id="footer" class="mt-10 bg-gray-800 p-4 text-center"></footer>
     <script src="./js/data.js"></script>
     <script src="./js/mainmovies.js"></script>
 </body>

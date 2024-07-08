@@ -1,49 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById("header");
-    header.classList.add("bg-gray-800", "p-4", "flex", "items-center", "justify-between");
-
-    const logoDiv = document.createElement("div");
-    logoDiv.classList.add("flex", "items-center", "space-x-3");
-
-    const img = document.createElement("img");
-    img.src = "./assest/Moviestack_isotipo.png";
-    img.alt = "MOVIESTACK Logo";
-    img.classList.add("w-16", "h-16", "rounded-full");
-    logoDiv.appendChild(img);
-
-    const span = document.createElement("span");
-    span.textContent = "MOVIESTACK";
-    span.classList.add("font-bold");
-    logoDiv.appendChild(span);
-
-    const nav = document.createElement("nav");
-    const ul = document.createElement("ul");
-    ul.classList.add("flex", "space-x-4");
-
-    const pages = [
-        { name: "HOME", href: "index.html" },
-        { name: "MOVIES", href: "#" },
-        { name: "FAVS", href: "#" }
-    ];
-    pages.forEach(page => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.textContent = page.name;
-        a.href = page.href;
-        if (page.name === "MOVIES") {
-            a.classList.add("text-black", "bg-white", "p-2", "rounded");
-        } else {
-            a.classList.add("text-white", "p-2", "rounded");
-        }
-        li.appendChild(a);
-        ul.appendChild(li);
-    });
-
-    nav.appendChild(ul);
-    header.appendChild(logoDiv);
-    header.appendChild(nav);
-
-    
     const footer = document.getElementById("footer");
     footer.classList.add("bg-gray-800", "p-4", "text-center");
 
@@ -53,10 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     footer.appendChild(footerText);
 
-    
     renderMovies(movies);
 });
-
 
 function createMovieCard(movie) {
     const card = document.createElement('div');
@@ -80,7 +33,7 @@ function createMovieCard(movie) {
 
     const description = document.createElement('p');
     description.classList.add('text-gray-300');
-    description.textContent = movie.description;
+    description.textContent = movie.overview;
 
     card.appendChild(imgContainer);
     card.appendChild(title);
@@ -89,7 +42,6 @@ function createMovieCard(movie) {
 
     return card;
 }
-
 
 function renderMovies(movies) {
     const container = document.getElementById('movieContainer');
