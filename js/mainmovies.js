@@ -9,6 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     footer.appendChild(footerText);
 
     renderMovies(movies);
+
+    const genreFilter = document.getElementById("genreFilter");
+    const titleSearch = document.getElementById("titleSearch");
+
+    genreFilter.addEventListener("change", () => {
+        filterMovies();
+    });
+
+    titleSearch.addEventListener("input", () => {
+        filterMovies();
+    });
 });
 
 function createMovieCard(movie) {
@@ -47,8 +58,23 @@ function renderMovies(movies) {
     const container = document.getElementById('movieContainer');
     if (!container) return;
 
+    container.innerHTML = '';
+
     movies.forEach(movie => {
         const card = createMovieCard(movie);
         container.appendChild(card);
     });
+}
+
+function filterMovies() {
+    const genreFilter = document.getElementById("genreFilter").value;
+    const titleSearch = document.getElementById("titleSearch").value.toLowerCase();
+
+    const filteredMovies = movies.filter(movie => {
+        const matchesGenre = genreFilter ? movie.genres.includes(genreFilter) : true;
+        const matchesTitle = titleSearch ? movie.title.toLowerCase().includes(titleSearch) : true;
+        return matchesGenre && matchesTitle;
+    });
+
+    renderMovies(filteredMovies);
 }
